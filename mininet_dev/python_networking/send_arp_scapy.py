@@ -1,0 +1,19 @@
+#! /usr/bin/env python
+# arping2tex : arpings a network and outputs a LaTeX table as a result
+
+import sys
+# if len(sys.argv) != 2:
+#     print "Usage: arping2tex <net>\n  eg: arping2tex 192.168.1.0/24"
+#     sys.exit(1)
+
+from scapy.all import sendp,Ether,ARP,conf, IP
+sendp(Ether(dst="ff:ff:ff:ff:ff:ff")/IP(src="10.1.2.3", dst="1.2.3.4",ttl=(1,4)), iface="eth0", loop=1, inter=0.2)
+
+# print r"\begin{tabular}{|l|l|}"
+# print r"\hline"
+# print r"MAC & IP\\"
+# print r"\hline"
+# for snd,rcv in ans:
+#     print rcv.sprintf(r"%Ether.src% & %ARP.psrc%\\")
+# print r"\hline"
+# print r"\end{tabular}"
